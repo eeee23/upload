@@ -18,24 +18,11 @@
         };
         console.log("参数param1:"+getParams("name"));
         console.log("参数param2:"+getParams("text"));
-        // if (getParams("name") == null && getParams("text") == null)
-        // {
-        //   var openf1 = fso.OpenTextFile("upload.txt");
-        //   var str1 = openf1.ReadLine();
-        //   document.getElementById("nan").innerHTML = str1;
-        // }
-        // else
-        // {
-        //   var fso;
-        //   try { 
-        //     fso=new ActiveXObject("Scripting.FileSystemObject"); 
-        //   } catch (e) { 
-        //     alert("当前浏览器不支持");
-        //   } 
-        //   var f1 = fso.createtextfile("../upload.txt",true);
-        //   f1.writeLine(getParams("name")+":"+getParams("text")); 
-        // }
-        document.getElementById("nan").insertAdjacentHTML('afterend', getParams("name")+":"+getParams("text")+"\n");
+        if (getParams("name")==null && getParams("text")==null)
+        {
+            window.localStorage.getItem(upload);
+        }
+        window.localStorage.setItem("upload", getParams("name")+":"+getParams("text")+"\n");
     </script>
 </body>
 </html>
