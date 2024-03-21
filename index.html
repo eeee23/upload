@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>页面</title>
+</head>
+<body>
+    <div>这是一个储存页面</div>
+    <div id="nan"></div>
+    <script type="text/javascript">
+        function getParams(key) {
+            var reg = new RegExp("(^|&)" + key + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        };
+        console.log("参数param1:"+getParams("name"));
+        console.log("参数param2:"+getParams("text"));
+        if (getParams("name") == null && getParams("text") == null)
+        {
+          var openf1 = fso.OpenTextFile("upload.txt");
+          var str1 = openf1.ReadLine();
+          document.getElementById("nan").innerHTML = str1;
+        }
+        else
+        {
+          var fso;
+          try { 
+            fso=new ActiveXObject("Scripting.FileSystemObject"); 
+          } catch (e) { 
+            alert("当前浏览器不支持");
+            return;
+          } 
+          var f1 = fso.createtextfile("../upload.txt",true);
+          f1.writeLine(getParams("name")+":"+getParams("text")); 
+        }
+    </script>
+</body>
+</html>
