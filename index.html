@@ -18,14 +18,17 @@
         };
         console.log("参数param1:"+getParams("name"));
         console.log("参数param2:"+getParams("text"));
-        if (getParams("name")==null && getParams("text")==null)
+        if (decodeURIComponent(window.localStorage.upload)!=undefined)
         {
-            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
-        }
-        else
-        {
-            window.localStorage.setItem("upload", window.localStorage.upload+getParams("name")+":"+getParams("text")+"\n");
-            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
+            if (getParams("name")==null && getParams("text")==null)
+            {
+                document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
+            }
+            else
+            {
+                window.localStorage.setItem("upload", window.localStorage.upload+getParams("name")+":"+getParams("text")+"\n");
+                document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
+            }
         }
     </script>
 </body>
