@@ -24,8 +24,8 @@
         }
         else
         {
-            window.localStorage.setItem("upload", window.localStorage.upload+encodeURIComponent(encodeURIComponent(getParams("name"))+":"+encodeURIComponent(getParams("text"))+"\n"));
-            document.getElementById("nan").innerHTML = decodeURIComponent(decodeURIComponent(window.localStorage.upload));
+            window.localStorage.setItem("upload", window.localStorage.upload+encodeURIComponent(getParams("name")+":"+getParams("text")+"\n"));
+            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
         }
     </script>
 </body>
