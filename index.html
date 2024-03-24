@@ -25,7 +25,7 @@
         else
         {
             window.localStorage.setItem("upload", window.localStorage.upload+encodeURIComponent(getParams("name")+":"+getParams("text")+"\n"));
-            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
+            document.getElementById("nan").innerHTML = unescape(decodeURIComponent(window.localStorage.upload));
         }
     </script>
 </body>
