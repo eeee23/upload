@@ -20,12 +20,12 @@
         console.log("参数param2:"+getParams("text"));
         if (getParams("name")==null && getParams("text")==null)
         {
-            document.getElementById("nan").innerHTML = window.localStorage.upload;
+            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
         }
         else
         {
-            window.localStorage.setItem("upload", window.localStorage.upload+getParams("name")+":"+getParams("text")+"\n");
-            document.getElementById("nan").innerHTML = window.localStorage.upload;
+            window.localStorage.setItem("upload", window.localStorage.upload+encodeURIComponent(getParams("name")+":"+getParams("text")+"\n"));
+            document.getElementById("nan").innerHTML = decodeURIComponent(window.localStorage.upload);
         }
     </script>
 </body>
