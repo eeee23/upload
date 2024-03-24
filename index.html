@@ -18,7 +18,7 @@
         };
         console.log("参数param1:"+getParams("name"));
         console.log("参数param2:"+getParams("text"));
-        if (decodeURIComponent(window.localStorage.upload)!=undefined)
+        if (window.localStorage.upload != undefined)
         {
             if (getParams("name")==null && getParams("text")==null)
             {
