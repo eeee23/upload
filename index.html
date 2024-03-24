@@ -20,9 +20,15 @@
         console.log("参数param2:"+getParams("text"));
         if (getParams("name")==null && getParams("text")==null)
         {
-            window.localStorage.getItem("upload");
+            var texts = window.localStorage.getItem("upload");
+            document.getElementById("nan").innerHTML = texts;
         }
-        window.localStorage.setItem("upload", getParams("name")+":"+getParams("text")+"\n");
+        else
+        {
+            window.localStorage.setItem("upload", getParams("name")+":"+getParams("text")+"\n");
+            var texts = window.localStorage.getItem("upload");
+            document.getElementById("nan").innerHTML = texts;
+        }
     </script>
 </body>
 </html>
